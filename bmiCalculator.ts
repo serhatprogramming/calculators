@@ -18,5 +18,4 @@ const calculateBMI = (height: number, weight: number): string => {
     return "Very severely underweight";
   }
 };
-
-console.log(calculateBMI(167, 67));
+console.log(calculateBMI(Number(process.argv[2]), Number(process.argv[3])));
