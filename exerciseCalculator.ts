@@ -9,8 +9,8 @@ interface ExerciseStats {
 }
 
 const calculateExercises = (
-  exercises: number[],
-  target: number
+  target: number,
+  exercises: number[]
 ): ExerciseStats => {
   const trainingDays = exercises.filter((number) => number !== 0).length;
   const totalHours = exercises.reduce((a, b) => a + b);
@@ -37,4 +37,10 @@ const calculateExercises = (
   };
 };
 
-console.log(calculateExercises([4, 1, 2, 6, 0], 2));
+const [first, second, target, ...exercises] = process.argv;
+console.log(
+  calculateExercises(
+    Number(target),
+    exercises.map((a) => Number(a))
+  )
+);
