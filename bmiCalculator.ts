@@ -1,5 +1,5 @@
 const calculateBMI = (height: number, weight: number): string => {
-  const bmi = weight / (height * height);
+  const bmi = weight / (((height / 100) * height) / 100);
   if (bmi >= 40) {
     return "Very severely or morbidly obese";
   } else if (bmi >= 35) {
@@ -9,7 +9,7 @@ const calculateBMI = (height: number, weight: number): string => {
   } else if (bmi >= 25) {
     return "Overweight";
   } else if (bmi >= 18.5) {
-    return "Healthy weight";
+    return "Normal (Healthy weight)";
   } else if (bmi >= 16) {
     return "Underweight";
   } else if (bmi >= 15) {
@@ -19,4 +19,4 @@ const calculateBMI = (height: number, weight: number): string => {
   }
 };
 
-console.log("Your BMI for 160 cm 67 kg is: ", calculateBMI(1.67, 100));
+console.log(calculateBMI(167, 67));
