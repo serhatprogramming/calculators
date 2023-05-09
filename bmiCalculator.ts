@@ -1,3 +1,5 @@
+import { parseArguments } from "./utils";
+
 const calculateBMI = (height: number, weight: number): string => {
   const bmi = weight / (((height / 100) * height) / 100);
   if (bmi >= 40) {
@@ -18,4 +20,7 @@ const calculateBMI = (height: number, weight: number): string => {
     return "Very severely underweight";
   }
 };
-console.log(calculateBMI(Number(process.argv[2]), Number(process.argv[3])));
+
+const { value1, value2 } = parseArguments(process.argv);
+
+console.log(calculateBMI(value1, value2));

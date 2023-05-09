@@ -1,13 +1,9 @@
 {
   "compilerOptions": {
     "target": "ES5",
-    "module": "system",
+    "module": "CommonJS",
     "noImplicitAny": false,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "outFile": "../../built/local/tsc.js",
-    "sourceMap": true
+    "forceConsistentCasingInFileNames": true
   }
 }

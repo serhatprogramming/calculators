@@ -1,12 +1,4 @@
-interface ExerciseStats {
-  periodLength: number;
-  trainingDays: number;
-  success: boolean;
-  rating: number;
-  ratingDescription: string;
-  target: number;
-  average: number;
-}
+import { ExerciseStats, parseExerciseArgs } from "./utils";
 
 const calculateExercises = (
   target: number,
@@ -36,11 +28,5 @@ const calculateExercises = (
     average: totalHours / exercises.length,
   };
 };
-
-const [first, second, target, ...exercises] = process.argv;
-console.log(
-  calculateExercises(
-    Number(target),
-    exercises.map((a) => Number(a))
-  )
-);
+const { target, exercises } = parseExerciseArgs(process.argv);
+console.log(calculateExercises(target, exercises));
