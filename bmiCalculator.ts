@@ -1,6 +1,6 @@
 import { parseArguments } from "./utils";
 
-const calculateBMI = (height: number, weight: number): string => {
+export const calculateBMI = (height: number, weight: number): string => {
   const bmi = weight / (((height / 100) * height) / 100);
   if (bmi >= 40) {
     return "Very severely or morbidly obese";
