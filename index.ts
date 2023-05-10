@@ -8,6 +8,17 @@ app.get("/hello", (_req, res) => {
 });
 
 app.get("/bmi", (req, res) => {
+  if (
+    !req.query.height ||
+    !req.query.weight ||
+    isNaN(Number(req.query.height)) ||
+    isNaN(Number(req.query.weight))
+  ) {
+    res.send({
+      error: "malformatted parameters",
+    });
+  }
+
   const obj = {
     height: req.query.height,
     weight: req.query.weight,
