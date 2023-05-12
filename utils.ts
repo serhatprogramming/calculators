@@ -23,7 +23,7 @@ interface ExerciseArgs {
 }
 
 export const parseExerciseArgs = (args: string[]): ExerciseArgs => {
-  const [a, b, target, ...exercises] = process.argv;
+  const [, , target, ...exercises] = args;
   console.log("target: ", target);
   console.log("exercises: ", exercises);
   if (
@@ -35,6 +35,22 @@ export const parseExerciseArgs = (args: string[]): ExerciseArgs => {
   return {
     target: Number(target),
     exercises: exercises.map((a) => Number(a)),
+  };
+};
+interface ExerciseBody {
+  target: string;
+  daily_exercises: string[];
+}
+export const parseExerciseBody = (body: ExerciseBody): ExerciseArgs => {
+  if (
+    isNaN(Number(body.target)) ||
+    body.daily_exercises.filter((x) => isNaN(Number(x))).length > 0
+  ) {
+    throw new Error("Provided values were not numbers!");
+  }
+  return {
+    target: Number(body.target),
+    exercises: body.daily_exercises.map((a) => Number(a)),
   };
 };
 

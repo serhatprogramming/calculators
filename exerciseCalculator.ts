@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/consistent-type-imports */
 import { ExerciseStats, parseExerciseArgs } from "./utils";
 
-const calculateExercises = (
+export const calculateExercises = (
   target: number,
   exercises: number[]
 ): ExerciseStats => {
@@ -29,5 +29,5 @@ const calculateExercises = (
     average: totalHours / exercises.length,
   };
 };
-const { target, exercises } = parseExerciseArgs(process.argv);
-console.log(calculateExercises(target, exercises));
+// const { target, exercises } = parseExerciseArgs(process.argv);
+// console.log(calculateExercises(target, exercises));

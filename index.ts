@@ -3,7 +3,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import express from "express";
 const app = express();
+app.use(express.json());
 
+import { calculateExercises } from "./exerciseCalculator";
+import { parseExerciseBody } from "./utils";
 import { calculateBMI } from "./utils";
 
 app.get("/hello", (_req, res) => {
@@ -28,6 +31,12 @@ app.get("/bmi", (req, res) => {
     bmi: calculateBMI(Number(req.query.height), Number(req.query.weight)),
   };
   res.send(obj);
+});
+
+app.post("/exercises", (req, res) => {
+  const { target, exercises } = parseExerciseBody(req.body);
+  const result = calculateExercises(target, exercises);
+  res.send(result);
 });
 
 app.listen(3003, () => console.log("Server is listening on port 3003"));
