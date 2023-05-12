@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/consistent-type-imports */
-import { ExerciseStats, parseExerciseArgs } from "./utils";
+import { ExerciseStats } from "./utils";
 
 export const calculateExercises = (
   target: number,

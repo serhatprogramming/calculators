@@ -34,9 +34,14 @@ app.get("/bmi", (req, res) => {
 });
 
 app.post("/exercises", (req, res) => {
-  const { target, exercises } = parseExerciseBody(req.body);
-  const result = calculateExercises(target, exercises);
-  res.send(result);
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    const { target, exercises } = parseExerciseBody(req.body);
+    const result = calculateExercises(target, exercises);
+    res.send(result);
+  } catch (error) {
+    res.send({ error: "malformatted parameters" });
+  }
 });
 
 app.listen(3003, () => console.log("Server is listening on port 3003"));
