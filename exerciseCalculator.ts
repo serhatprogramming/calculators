@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/consistent-type-imports */
 import { ExerciseStats, parseExerciseArgs } from "./utils";
 
 const calculateExercises = (

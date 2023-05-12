@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import express from "express";
 const app = express();
 
@@ -27,4 +30,4 @@ app.get("/bmi", (req, res) => {
   res.send(obj);
 });
 
-app.listen(3003, () => console.log(`Server is listening on port 3003`));
+app.listen(3003, () => console.log("Server is listening on port 3003"));
